@@ -72,4 +72,11 @@ def enhance(html,caps):
     popup=Path('contact-dialog.html').read_text(encoding='utf-8')
     for name in PATHS:popup=popup.replace('{{icon:'+name+'}}',icon(name))
     html=html.replace('<script src="/profile.js"',popup+'<script src="/profile.js"')
+    html=re.sub(r'<section class="hero" id="home">.*?</section>',lambda m:Path('hero.html').read_text(encoding='utf-8'),html,flags=re.S)
+    html=html.replace('</head>','<link rel="stylesheet" href="/hero.css"></head>')
+    html=re.sub(r'<a class="profile-secondary"[^>]*>.*?</a>','',html,flags=re.S)
+    html=html.replace('<a class="back-top"', '<a class="footer-profile" href="/masco-pipelines-profile.pdf" target="_blank" rel="noopener">Company Profile '+icon('download')+'</a><a class="back-top"')
+    html=html.replace('<title>MASCO Pipelines | Company Profile</title>','<title>MASCO Pipelines | Integrated Pipeline Solutions</title>')
+    html=html.replace('alt="Closing pipeline artwork from the company profile"','alt="MASCO Pipelines infrastructure"')
+    html=html.replace('alt="Geographic presence world map from the company profile"','alt="Global geographic presence map"')
     return html
