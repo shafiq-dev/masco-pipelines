@@ -1,0 +1,47 @@
+{
+  "tool": "Built-in image_gen.imagegen",
+  "assets": [
+    {
+      "name": "project-oil-gas",
+      "original": "output/imagegen/project-oil-gas.png",
+      "website": "public/imagery/project-oil-gas.webp",
+      "prompt": "Use case: ads-marketing. Asset type: single landscape 3:2 project portfolio thumbnail for MASCO Pipelines corporate website. Photorealistic premium industrial infrastructure photography. Cool silver, navy and restrained cyan with natural pale sand. No people, no human reflections, no readable text, no logos, no watermark. No collage. The image is illustrative of the project type, not a depiction of a specific completed project. Centered crop-safe composition, detailed realistic engineering, luminous daylight. Subject: oil and gas transmission pipeline corridor in Saudi desert, strong silver pipeline bends and blue valves in foreground with a low compression station and distant tan mountains, elevated three-quarter viewpoint, elegant leading lines.",
+      "source_filename": "exec-d555b63c-cc08-4f6e-8e91-944e4675befb.png"
+    },
+    {
+      "name": "project-utilities",
+      "original": "output/imagegen/project-utilities.png",
+      "website": "public/imagery/project-utilities.webp",
+      "prompt": "Use case: ads-marketing. Asset type: single landscape 3:2 project portfolio thumbnail for MASCO Pipelines corporate website. Photorealistic premium industrial infrastructure photography. Cool silver, navy and restrained cyan with natural pale sand. No people, no human reflections, no readable text, no logos, no watermark. No collage. The image is illustrative of the project type, not a depiction of a specific completed project. Centered crop-safe composition, detailed realistic engineering, luminous daylight. Subject: organized industrial utilities pipe racks in a modern Saudi petrochemical park, silver piping at multiple levels supported on steel structures, blue valve assemblies, clean concrete access road, refinery structures in background, ground-level architectural wide view.",
+      "source_filename": "exec-09dbc964-3b47-431a-8c39-0313e071db9e.png"
+    },
+    {
+      "name": "project-water",
+      "original": "output/imagegen/project-water.png",
+      "website": "public/imagery/project-water.webp",
+      "prompt": "Use case: ads-marketing. Asset type: single landscape 3:2 project portfolio thumbnail for MASCO Pipelines corporate website. Photorealistic premium industrial infrastructure photography. Cool silver, navy and restrained cyan with natural pale sand. No people, no human reflections, no readable text, no logos, no watermark. No collage. The image is illustrative of the project type, not a depiction of a specific completed project. Centered crop-safe composition, detailed realistic engineering, luminous daylight. Subject: a large blue-and-silver water transmission main pipeline and modern pumping station at the edge of a Saudi desert reservoir facility, clean low building, precise piping and valve chamber, no ocean, high oblique viewpoint, strong simple readable composition.",
+      "source_filename": "exec-ee9a338a-1cb0-4005-9a45-5e32fecaf24d.png"
+    },
+    {
+      "name": "project-black-sea",
+      "original": "output/imagegen/project-black-sea.png",
+      "website": "public/imagery/project-black-sea.webp",
+      "prompt": "Use case: ads-marketing. Asset type: single landscape 3:2 project portfolio thumbnail for MASCO Pipelines corporate website. Photorealistic premium industrial infrastructure photography, realistic engineering and materials, cool silver and navy accents in luminous natural daylight. No people, no human reflections, no readable text, no logos, no watermark. No collage. Illustrative project-type image, not photography of a specific completed project. Centered crop-safe composition. Subject: a large diameter steel gas transmission pipeline construction corridor crossing gently rolling Romanian countryside, green fields and distant low hills, orderly yellow pipelayer machinery stationary beside a carefully aligned section of silver pipes, wide elevated oblique composition, clear pale blue sky.",
+      "source_filename": "exec-c0d2f219-341f-4bfa-9ca9-c7260f040bcb.png"
+    },
+    {
+      "name": "project-hdd",
+      "original": "output/imagegen/project-hdd.png",
+      "website": "public/imagery/project-hdd.webp",
+      "prompt": "Use case: ads-marketing. Asset type: single landscape 3:2 project portfolio thumbnail for MASCO Pipelines corporate website. Photorealistic premium industrial infrastructure photography, realistic engineering and materials, cool silver and navy accents in luminous natural daylight. No people, no human reflections, no readable text, no logos, no watermark. No collage. Illustrative project-type image, not photography of a specific completed project. Centered crop-safe composition. Subject: horizontal directional drilling equipment staged at the bank of a broad Danube-like European river, neatly aligned dark steel pipeline sections on rollers leading toward the crossing, restrained blue drilling machine, green wooded far bank and long calm water view, atmospheric daylight, clean plausible construction area with no workers, composed from elevated near-bank viewpoint.",
+      "source_filename": "exec-d7b2b8ef-585e-4409-9915-60ff35184e60.png"
+    },
+    {
+      "name": "project-egypt",
+      "original": "output/imagegen/project-egypt.png",
+      "website": "public/imagery/project-egypt.webp",
+      "prompt": "Use case: ads-marketing. Asset type: single landscape 3:2 project portfolio thumbnail for MASCO Pipelines corporate website. Photorealistic premium industrial infrastructure photography, realistic engineering and materials, cool silver and navy accents in luminous natural daylight. No people, no human reflections, no readable text, no logos, no watermark. No collage. Illustrative project-type image, not photography of a specific completed project. Centered crop-safe composition. Subject: a compact modern natural gas metering and pressure-regulating station in Egypt, neat silver piping and blue regulator valves inside a low fenced compound, beige control building, pale desert agricultural outskirts with a few distant palm trees, ground-level three-quarter architectural photograph, crisp symmetrical engineering.",
+      "source_filename": "exec-52f865bb-c15e-4c1f-9450-918ff5bdd214.png"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+<dialog class="contact-dialog" aria-labelledby="enquiry-title" aria-describedby="enquiry-description">
+ <button class="contact-close" aria-label="Close contact popup">{{icon:close}}</button>
+ <div class="contact-dialog-grid">
+  <aside class="enquiry-aside">
+   <img class="enquiry-image" src="/imagery/pipeline-corridor.webp" alt="Illustrative pipeline infrastructure" loading="lazy">
+   <div class="enquiry-aside-top"><img src="/profile/page-01-55.webp" alt="MASCO Pipelines" width="170" height="51"></div>
+   <div class="enquiry-aside-content"><span class="small-label">MASCO PIPELINES</span><h2>Contact Us</h2><p>Your partner of choice for pipeline infrastructure in Saudi Arabia and across the region.</p><div class="enquiry-location">{{icon:pin}}<span>Al Khobar, Eastern Province<br>Kingdom of Saudi Arabia</span></div><a href="https://www.mascopipelines.com" target="_blank" rel="noopener">Official website {{icon:arrow}}</a></div>
+  </aside>
+  <div class="enquiry-main">
+   <div class="enquiry-form-view"><p class="eyebrow">PROJECT ENQUIRY</p><h2 id="enquiry-title">How can we help?</h2><p id="enquiry-description">Tell us a little about your project.</p>
+    <form id="enquiry-form">
+     <div class="form-row"><label for="enquiry-name">Full name <span>*</span><input id="enquiry-name" name="name" autocomplete="name" required placeholder="Your full name" maxlength="120"></label><label for="enquiry-email">Work email <span>*</span><input id="enquiry-email" type="email" name="email" autocomplete="email" required placeholder="you@company.com" maxlength="160"></label></div>
+     <label for="enquiry-company">Company<input id="enquiry-company" name="company" autocomplete="organization" placeholder="Company name" maxlength="160"></label>
+     <label for="enquiry-service">Area of interest<select id="enquiry-service" name="service"><option value="">Select a service</option><option>EPCC Services</option><option>Operations & Maintenance</option><option>Industrial Engineering</option><option>Water & Energy Infrastructure</option><option>Partnership & General Enquiry</option></select></label>
+     <label for="enquiry-message">Your project <span>*</span><textarea id="enquiry-message" name="message" required rows="3" placeholder="What are you planning?" maxlength="5000"></textarea></label>
+     <button class="button enquiry-submit" type="submit">Prepare enquiry {{icon:arrow}}</button>
+     <p class="enquiry-note">Prepare a draft to copy or download. Nothing is sent online.</p>
+    </form>
+   </div>
+   <div class="enquiry-ready" hidden><span class="ready-check">{{icon:check}}</span><p class="eyebrow">YOUR ENQUIRY IS READY</p><h2 id="enquiry-ready-title">Ready to share.</h2><p>Copy or download your enquiry and share it with your MASCO contact. It has not been sent.</p><pre id="enquiry-preview"></pre><div class="ready-actions"><button id="copy-enquiry" class="button" type="button">Copy enquiry {{icon:copy}}</button><button id="download-enquiry" class="secondary-button" type="button" aria-label="Download enquiry">{{icon:download}}</button></div><p id="enquiry-status" role="status" aria-live="polite"></p><button class="edit-enquiry" type="button">← Edit enquiry</button></div>
+  </div>
+ </div>
+</dialog>
+

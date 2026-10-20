@@ -1,0 +1,30 @@
+{
+  "tool": "Built-in image_gen.imagegen",
+  "purpose": "User-requested illustrative capability imagery. Company facts and portfolio content remain based on the MASCO Pipelines PDF.",
+  "assets": [
+    {
+      "name": "pipeline-corridor",
+      "original": "output/imagegen/pipeline-corridor.png",
+      "website": "public/imagery/pipeline-corridor.webp",
+      "prompt": "Use case: ads-marketing. Asset type: premium corporate website capability image, landscape 3:2 photography. Primary request: a photorealistic aerial oblique view of a meticulously engineered oil and gas pipeline corridor through a Saudi Arabian desert landscape, multiple silver steel transmission lines, precision bends, a small modern valve station, distant subtle industrial infrastructure. No people. Style: high-end industrial architectural photography, clean refined luminous daylight, realistic engineering, cool silver metal and deep navy / cyan details, pale sand, soft atmospheric horizon. Composition: striking diagonal lines from lower foreground to far horizon, subject centered so image crops to landscape or portrait, fine material detail, no text, no branding, no watermarks. This is illustrative infrastructure imagery, not a claim of any real MASCO project. Output a single photograph, not a collage."
+    },
+    {
+      "name": "engineering-studio",
+      "original": "output/imagegen/engineering-studio.png",
+      "website": "public/imagery/engineering-studio.webp",
+      "prompt": "Use case: ads-marketing. Asset type: landscape 3:2 capability photograph for an elegant Saudi pipeline engineering corporate website. Photorealistic immaculate engineering design studio with a large monitor showing a complex pipeline plant CAD wireframe with NO readable text or numbers, rolled blueprints and steel pipe cross-section samples on a white desk; through floor-to-ceiling glass, an elegant silver pipeline manifold facility in pale desert landscape. No people, no human reflections, no logos, no watermarks, no typography. Architectural editorial photography, polished cool navy and cyan accents, clean natural daylight, restrained premium aesthetic. Composition centered subject suitable for landscape and portrait cropping; realistic objects and materials. Single image, no collage."
+    },
+    {
+      "name": "pumping-station",
+      "original": "output/imagegen/pumping-station.png",
+      "website": "public/imagery/pumping-station.webp",
+      "prompt": "Use case: ads-marketing. Asset type: landscape 3:2 capability photograph for a refined corporate water and energy infrastructure website. Photorealistic modern industrial water pumping station interior, immaculate organized parallel stainless steel pipe runs and precision blue industrial pump housings, flanges, pressure gauges without legible text, clean pale concrete flooring, large windows with soft daylight, subtle pale desert view outside. No people, no human reflections, no logos, no text, no watermarks. Premium architectural industrial photography, pale silver white and navy/cyan palette, symmetrical leading lines with strong depth, practical believable engineering, wide angle but no distortion, centered content crop-safe. Single photograph not a collage."
+    },
+    {
+      "name": "pipeline-logistics",
+      "original": "output/imagegen/pipeline-logistics.png",
+      "website": "public/imagery/pipeline-logistics.webp",
+      "prompt": "Use case: ads-marketing. Asset type: landscape 3:2 industrial website capability photograph. Photorealistic immaculate covered industrial logistics yard in Saudi Arabia, neatly aligned large diameter steel pipe sections on engineered supports, subtle cyan pipe-end caps, organized flanges and valve assemblies on pallets, one stationary overhead gantry crane structure, clean pale concrete and a bright hazy desert horizon. No people, no human reflections. Premium architectural editorial industrial photography matching cool silver, navy blue, restrained cyan and pale sand palette. Centered carefully balanced leading-line composition, crisp realistic metal texture, gentle daytime sunlight. NO words, no labels, no logos, no watermark, no collage. Illustrative procurement and logistics setting, not a real project claim."
+    }
+  ]
+}

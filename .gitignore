@@ -1,0 +1,10 @@
+node_modules/
+dist/
+tmp/
+output/
+__pycache__/
+*.log
+*-preview.png
+preview.png
+.env*
+.netlify/
