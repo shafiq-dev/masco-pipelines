@@ -1,0 +1,72 @@
+[
+  {
+    "asset": "public/media/welding.webp",
+    "source_archive": "masco pipelines media.zip",
+    "source_file": "CisGroup_Brosura_200X200mm_2026_EN15 1.png",
+    "source_sha256": "33c6c264271e7fed35a875cc0b675a24b2429fc871e459b98f4129c960268c7c",
+    "treatment": "EXIF orientation, proportional downsize and WebP compression only; no generative editing"
+  },
+  {
+    "asset": "public/media/onesti.webp",
+    "source_archive": "masco pipelines media.zip",
+    "source_file": "DJI_0021-topaz-denoise 1.jpg",
+    "source_sha256": "23b842981ecccb2f5f1e49a3a35d99da9ecf56c3f209f364f55ce12f856f5bf7",
+    "treatment": "EXIF orientation, proportional downsize and WebP compression only; no generative editing"
+  },
+  {
+    "asset": "public/media/black-sea.webp",
+    "source_archive": "masco pipelines media.zip",
+    "source_file": "DJI_0905 2.jpg",
+    "source_sha256": "2d491ed1bc55597741a68067941ccf8bf8872a93f3ea649e99d21a584dcaaee6",
+    "treatment": "EXIF orientation, proportional downsize and WebP compression only; no generative editing"
+  },
+  {
+    "asset": "public/media/interconnection.webp",
+    "source_archive": "masco pipelines media.zip",
+    "source_file": "PAG 6 - ROMANIA - MOLDOVA NATURAL GAS INTERCONNECTION 1.jpg",
+    "source_sha256": "0535b81dc885804a54999daf39dba83320e0a9515a71cdb00f9b119a94f41b71",
+    "treatment": "EXIF orientation, proportional downsize and WebP compression only; no generative editing"
+  },
+  {
+    "asset": "public/media/danube-crossing.webp",
+    "source_archive": "masco pipelines media.zip",
+    "source_file": "pag-11-topaz-denoise-enhance.jpg",
+    "source_sha256": "801da16dc9d5e589b487769b0f751b10c79d9d7cf83ff0306ff59d1e4ff00ee4",
+    "treatment": "EXIF orientation, proportional downsize and WebP compression only; no generative editing"
+  },
+  {
+    "asset": "public/media/hdd-pullback.webp",
+    "source_archive": "masco-pipelines-&-infrastructure.zip",
+    "source_file": "Project 3 Danube and Borcea River HDD Crossings (European Engineering Milestones).jpg",
+    "source_sha256": "223d7ffad96be80181ce30c2f6e4b198f28266ce49155ca6522a556cd86e293b",
+    "treatment": "EXIF orientation, proportional downsize and WebP compression only; no generative editing"
+  },
+  {
+    "asset": "public/media/metering-stations.webp",
+    "source_archive": "masco-pipelines-&-infrastructure.zip",
+    "source_file": "Project 6 Natural Gas Pressure Reducing Metering Stations (Republic of Maldova).jpg",
+    "source_sha256": "d8310d37879dc1c2dc04080811279dcaf86257586fb61eb09592506e6ed2a69b",
+    "treatment": "EXIF orientation, proportional downsize and WebP compression only; no generative editing"
+  },
+  {
+    "asset": "public/media/jv-group.webp",
+    "source_archive": "masco-pipelines-&-infrastructure.zip",
+    "source_file": "jv-group.jpg",
+    "source_sha256": "8f69318a59da30fdd23224260850f0596a186da4fa192987c9728159b4a017d8",
+    "treatment": "EXIF orientation, proportional downsize and WebP compression only; no generative editing"
+  },
+  {
+    "asset": "public/media/jv-handshake.webp",
+    "source_archive": "masco-pipelines-&-infrastructure.zip",
+    "source_file": "jv-handshake.jpg",
+    "source_sha256": "a53afb918dd9fcf99ced685cc4d07126f6e0135326230ffbb04e90718a718bf9",
+    "treatment": "EXIF orientation, proportional downsize and WebP compression only; no generative editing"
+  },
+  {
+    "asset": "public/media/jv-signing.webp",
+    "source_archive": "masco-pipelines-&-infrastructure.zip",
+    "source_file": "jv-signing.jpg",
+    "source_sha256": "6205f371444d0688f70b42c6723e347b225545883ff1cc3b5a6a373cd707c026",
+    "treatment": "EXIF orientation, proportional downsize and WebP compression only; no generative editing"
+  }
+]

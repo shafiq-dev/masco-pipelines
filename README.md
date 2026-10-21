@@ -1,38 +1,31 @@
 # MASCO Pipelines
 
-Company content and sections come from the supplied MASCO Pipelines Profile (12 pages). The website uses the supplied `29lt-bukra-regular.ttf`, hosted locally. At the user's request, four capability images and six project thumbnails were created with the built-in imagegen tool. Named projects and client references retain the PDF's content and logos.
+October 2026 rework based on the two supplied site drafts, original company media and company portfolio. Dependency-free static site, ready for Netlify.
 
-## Run locally
+## Run and build
 
-Run `npm run dev` in this directory and open http://localhost:3004. No dependency installation is required.
+Run `npm run dev` and open http://localhost:3004. `npm run lint` checks JavaScript syntax, assets, fonts, photo provenance and footer-only portfolio mention. `npm run build` creates `dist/`. Netlify uses committed HTML and assets; Python is not required for deployment.
 
-`npm run lint` checks JavaScript syntax, local assets, local font, and image paths. `npm run build` creates a clean static production copy in `dist/`.
+## Rework
 
-## Source and sections
+Centred 1280px site frame with approximately 1160px content area, supplied white logo, navy header, cyan accents and heavier locally hosted Inter typography. Structure follows the supplied drafts: partnership, attributed parent-company track record, four service lines, EPCC lifecycle, six original project case studies, QHSE, values, country map, clients, partnership news and contact.
 
-1. Cover
-2. About Masco Pipelines / Who We Are / JV partners
-3. Vision, Mission & Values (five values)
-4. Core Capabilities
-5. EPCC Capabilities
-6. Project Portfolio (six projects)
-7. Combined Track Record (eight figures)
-8. Geographic Presence (four countries)
-9. Why MASCO Pipelines?
-10. Certifications & Standards (six entries)
-11. Key Clients & Partners (twelve entries)
-12. Closing company message, location and official websites
+Interactive service tabs, project filters and detail dialogs, flag pins, rotating hero images, animated figures and restrained scroll reveals respect reduced-motion preferences. Mobile navigation and native dialogs support keyboard focus, Escape and backdrop dismissal. Unsupported draft-only safety records, fleet counts and conflicting project dates are omitted. The company portfolio PDF is linked only in the footer.
 
-`extract_profile.py` extracts the original embedded PDF artwork, transparent logos and the vector SABIC mark. `profile-assets.json` records source page and image references. `rebuild.py` and `enhancements.py` create the page. `public/profile.css`, `public/enhancements.css` and `public/profile.js` provide layout, icons, popup behavior and motion.
+## Original media only
 
-The EPCC chapter is scroll-driven, with keyboard-accessible tabs and matching industrial images. The site includes scroll reveals, hero parallax, animated counts, project filters, country flag pins, reduced-motion support and a responsive mobile menu. Contact Us opens an accessible responsive dialog with validated enquiry fields and a draft preview. Enquiries can be copied or downloaded; nothing is sent or stored remotely. The PDF includes no verified enquiry email address.
+All photographs in `public/media/` come from supplied media or original photos packaged in the supplied drafts. No generated photography remains in the deployed site. Treatment is limited to EXIF orientation, proportional resizing and WebP compression.
 
-Generated image originals are saved locally in `output/imagegen/` (ignored by Git). Optimized website images are committed in `public/imagery/`. Complete prompts and provenance are recorded in `image-generation.json` and `project-image-generation.json`. The imagery illustrates service areas and project types and is not represented as photography of the named portfolio projects.
+`original-media-manifest.json` records each source archive, original filename and SHA-256. `public/brand/` contains supplied brand marks and original portfolio map and flags. `prepare_originals.py` records preparation from extracted local references in ignored `tmp/review/`.
 
-## Netlify
+Runtime: `public/index.html`, `public/site.css`, `public/site.js`. `rework.py` generates HTML. Historical generators are retained for reference and are not used by the build.
 
-Repository: https://github.com/shafiq-dev/masco-pipelines
+## Contact
 
-Connect this repository to Netlify, using branch `main`. `netlify.toml` supplies the build command (`npm run build`), publish directory (`dist`) and Node.js version (22). No environment secrets, dependencies or Python installation are needed for the Netlify build. The generated HTML and all runtime assets are committed.
+The popup validates fields and prepares a draft for copying or downloading. Nothing is sent or stored remotely. A confirmed recipient or form service is required to enable direct submission. The footer links to the verified MASCO Group contact page.
 
-The local preview remains available on port 3004. A successful Git push and a completed Netlify deployment are separate states; verify the deployment in Netlify or through GitHub deployment checks.
+## Hosting
+
+GitHub: https://github.com/shafiq-dev/masco-pipelines
+
+Netlify: branch `main`, command `npm run build`, publish `dist`, Node 22. No secrets or environment variables required.

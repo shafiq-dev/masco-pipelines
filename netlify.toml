@@ -13,7 +13,7 @@
     X-Frame-Options = "SAMEORIGIN"
 
 [[headers]]
-  for = "/imagery/*"
+  for = "/media/*"
   [headers.values]
     Cache-Control = "public, max-age=86400"
 
