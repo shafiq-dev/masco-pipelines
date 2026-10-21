@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#062b4c">
+  <meta name="description" content="Secure MASCO Pipelines client project portal.">
+  <title>Client Portal | MASCO Pipelines</title>
+  <link rel="preload" href="/fonts/Inter-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/fonts/Inter-Bold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="/portal/portal.css">
+</head>
+<body>
+  <main class="login-screen" id="login-screen">
+    <section class="login-visual" aria-hidden="true">
+      <img src="/media/welding.webp" alt="">
+      <div class="visual-copy"><span>MASCO PIPELINES</span><h1>Project intelligence.<br>Built into delivery.</h1><p>Protected access for authorized clients and project stakeholders.</p></div>
+    </section>
+    <section class="login-panel">
+      <a href="/" class="login-brand" aria-label="Back to MASCO Pipelines"><img src="/brand/logo-color.png" alt="MASCO Pipelines"></a>
+      <div class="login-copy"><span class="kicker">CLIENT PROJECT PORTAL</span><h2>Authorized access</h2><p>Enter the private access ID issued by the MASCO Pipelines IT team.</p></div>
+      <form id="access-form">
+        <label for="access-id">Secure access ID</label>
+        <div class="access-field"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10V8a5 5 0 0 1 10 0v2M5 10h14v11H5z"/><circle cx="12" cy="15" r="1.3"/></svg><input id="access-id" name="accessId" type="password" autocomplete="one-time-code" placeholder="Enter your access ID" required maxlength="160"><button type="button" id="reveal-id" aria-label="Show access ID">Show</button></div>
+        <button class="primary" type="submit"><span>Open secure portal</span><span aria-hidden="true">→</span></button>
+        <p id="login-status" class="login-status" role="status" aria-live="polite"></p>
+      </form>
+      <div class="security-note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6z"/><path d="m8 12 3 3 5-6"/></svg><p><b>Restricted system</b><span>Access is validated on the server. IDs are managed only by MASCO Pipelines IT.</span></p></div>
+      <a href="/" class="back-link">← Return to corporate website</a>
+    </section>
+  </main>
+
+  <div class="portal" id="portal" hidden>
+    <header class="portal-header">
+      <a href="/" class="portal-brand"><img src="/brand/logo-white.png" alt="MASCO Pipelines"></a>
+      <div class="portal-title"><span>CLIENT PORTAL</span><b>Project Control Centre</b></div>
+      <div class="header-actions"><span class="secure-pill"><i></i>Protected session</span><button id="logout" type="button">Sign out</button></div>
+    </header>
+    <div class="demo-banner"><b>Demonstration environment</b><span>Illustrative tracker data. MASCO IT must connect approved project systems before production use.</span></div>
+    <div class="portal-layout">
+      <aside class="sidebar">
+        <label for="project-select">Active project</label>
+        <select id="project-select"></select>
+        <nav aria-label="Portal navigation">
+          <button class="nav-item active" data-view="overview"><span>01</span>Project overview</button>
+          <button class="nav-item" data-view="quality"><span>02</span>Quality &amp; NDT</button>
+          <button class="nav-item" data-view="documents"><span>03</span>Documents</button>
+        </nav>
+        <div class="support-card"><span>NEED ASSISTANCE?</span><b>MASCO Pipelines IT</b><p>Request or restore access through your authorized project administrator.</p></div>
+      </aside>
+      <main class="workspace">
+        <div class="workspace-head"><div><span class="kicker">PROJECT TRACKER</span><h1 id="project-name">Loading project…</h1><p id="project-meta"></p></div><div class="update-chip"><span>DATA STATUS</span><b id="data-status">Protected</b></div></div>
+
+        <section class="view active" data-view-panel="overview">
+          <div class="metric-grid" id="metric-grid"></div>
+          <div class="overview-grid">
+            <article class="card progress-card"><div class="card-head"><div><span class="kicker">OVERALL DELIVERY</span><h2>Project progress</h2></div><b id="overall-label">0%</b></div><div class="progress-track"><i id="overall-bar"></i></div><div class="phase-list" id="phase-list"></div></article>
+            <article class="card milestone-card"><div class="card-head"><div><span class="kicker">DELIVERY PLAN</span><h2>Milestone tracker</h2></div></div><div class="timeline" id="timeline"></div></article>
+          </div>
+          <article class="card activity-card"><div class="card-head"><div><span class="kicker">PROJECT ACTIVITY</span><h2>Latest updates</h2></div><span class="demo-label">DEMO DATA</span></div><div class="activity-list" id="activity-list"></div></article>
+        </section>
+
+        <section class="view" data-view-panel="quality" hidden>
+          <div class="metric-grid" id="quality-metrics"></div>
+          <article class="card table-card"><div class="card-head"><div><span class="kicker">FIELD QUALITY</span><h2>Weld &amp; NDT register</h2></div><span class="demo-label">DEMO DATA</span></div><div class="table-wrap"><table><thead><tr><th>Joint ID</th><th>Chainage</th><th>Method</th><th>Inspection stage</th><th>Status</th></tr></thead><tbody id="quality-table"></tbody></table></div></article>
+        </section>
+
+        <section class="view" data-view-panel="documents" hidden>
+          <article class="card documents-card"><div class="card-head"><div><span class="kicker">CONTROLLED DOCUMENTS</span><h2>Project document register</h2></div><span class="demo-label">PREVIEW ONLY</span></div><div class="document-list" id="document-list"></div><p class="documents-note">Downloads are disabled in this demonstration environment. Production documents must come from MASCO’s approved document-control system.</p></article>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script src="/portal/portal.js" defer></script>
+</body>
+</html>

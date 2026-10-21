@@ -24,6 +24,19 @@ Runtime: `public/index.html`, `public/site.css`, `public/site.js`. `rework.py` g
 
 The popup validates fields and prepares a draft for copying or downloading. Nothing is sent or stored remotely. A confirmed recipient or form service is required to enable direct submission. The footer links to the verified MASCO Group contact page.
 
+## Protected client portal
+
+The public site links to `/portal/`. The portal includes a responsive project tracker, animated delivery metrics, project switching, milestone progress, a demonstration weld/NDT register and a controlled-document preview. All included records are clearly labelled demonstration data until MASCO IT connects an approved project-data source.
+
+Access IDs are checked only inside the Netlify function. The browser receives an HTTP-only, same-site, signed session cookie valid for eight hours; project data is not returned without a valid session. The login endpoint also applies best-effort request throttling. No production ID or signing secret is committed.
+
+MASCO IT must configure these Netlify environment values before production access can work:
+
+- `MASCO_PORTAL_ACCESS_IDS`: one or more long, randomly generated access IDs separated by commas.
+- `MASCO_PORTAL_SESSION_SECRET`: a separate long random signing secret.
+
+Changing either value invalidates the relevant access or sessions. `.env.example` documents the names using placeholders only.
+
 ## Hosting
 
 GitHub: https://github.com/shafiq-dev/masco-pipelines

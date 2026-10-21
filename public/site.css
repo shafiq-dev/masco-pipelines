@@ -12,5 +12,6 @@ dialog{border:0;padding:0;color:var(--ink);box-shadow:0 30px 100px #00152866;max
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.hero-progress{display:none}}
 
 .scroll-reveal{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s var(--ease)}.scroll-reveal.revealed{opacity:1;transform:none}@media(prefers-reduced-motion:reduce){.scroll-reveal{opacity:1;transform:none}}
+.portal-link{display:flex;align-items:center;gap:7px;color:#c5dbea;font-size:10px;font-weight:600;white-space:nowrap}.portal-link span{color:var(--cyan)}.portal-link:hover{color:white}@media(max-width:850px){.portal-link{display:none}}
 .map-pin span{width:max-content}.map-pin span img{flex-shrink:0}
 .header .button{white-space:nowrap}@media(max-width:600px){.pin-moldova span{bottom:26px;left:19px}.pin-moldova span:before{width:27px;left:-22px;top:26px;transform:rotate(-48deg)}}@media(max-width:360px){.hero-actions .button{font-size:9px;padding:10px;gap:9px}.header-actions{gap:9px}.header .button{padding:7px 9px;font-size:9px}}
