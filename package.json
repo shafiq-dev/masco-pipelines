@@ -1,1 +1,1 @@
-{"name":"masco-pipelines","version":"1.0.0","private":true,"type":"module","scripts":{"dev":"node --env-file-if-exists=.env.local server.mjs","start":"node server.mjs","lint":"node scripts.mjs lint","build":"node scripts.mjs build"},"dependencies":{"@netlify/blobs":"^11.1.4"}}
+{"name":"masco-pipelines","version":"1.0.0","private":true,"type":"module","scripts":{"dev":"node --env-file-if-exists=.env.local server.mjs","start":"node server.mjs","lint":"node scripts.mjs lint","build":"node scripts.mjs build"},"dependencies":{"@netlify/blobs":"^11.1.4","sanitize-html":"^2.18.1"}}

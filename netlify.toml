@@ -27,6 +27,11 @@
   status = 200
 
 [[redirects]]
+  from = "/api/news/media"
+  to = "/.netlify/functions/news-media"
+  status = 200
+
+[[redirects]]
   from = "/api/admin/auth"
   to = "/.netlify/functions/admin-auth"
   status = 200
@@ -34,6 +39,11 @@
 [[redirects]]
   from = "/api/admin/news"
   to = "/.netlify/functions/admin-news"
+  status = 200
+
+[[redirects]]
+  from = "/api/admin/media"
+  to = "/.netlify/functions/admin-media"
   status = 200
 
 [[redirects]]

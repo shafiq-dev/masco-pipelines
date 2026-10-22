@@ -1,0 +1,2 @@
+import {getMedia} from '../media-store.mjs';
+export default async request=>{if(request.method!=='GET')return new Response('Method not allowed.',{status:405});try{const item=await getMedia(new URL(request.url).searchParams.get('id'));if(!item)return new Response('Image not found.',{status:404});return new Response(item.bytes,{headers:{'Content-Type':item.contentType,'Cache-Control':'public, max-age=31536000, immutable','X-Content-Type-Options':'nosniff'}});}catch{return new Response('Image not found.',{status:404});}};
