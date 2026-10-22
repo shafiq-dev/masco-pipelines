@@ -1,6 +1,6 @@
 import {getStore} from '@netlify/blobs';
+import {decodeUpload} from '../shared/media.mjs';
 
-const formats={'image/jpeg':'jpg','image/png':'png','image/webp':'webp'};
-export function decodeUpload(input){const match=/^data:(image\/(?:jpeg|png|webp));base64,([A-Za-z0-9+/=]+)$/.exec(String(input.data||''));if(!match||!formats[match[1]])throw new Error('Upload a JPG, PNG or WebP image.');const bytes=Buffer.from(match[2],'base64');if(!bytes.length||bytes.length>4*1024*1024)throw new Error('Image must be smaller than 4 MB.');return {bytes,contentType:match[1],extension:formats[match[1]],name:String(input.name||'news-image').slice(0,120)};}
-export async function saveMedia(input){const media=decodeUpload(input),id=`${crypto.randomUUID()}.${media.extension}`;await getStore('masco-news-media').set(id,media.bytes,{metadata:{contentType:media.contentType,name:media.name}});return {id,url:`/api/news/media?id=${encodeURIComponent(id)}`};}
-export async function getMedia(id){if(!/^[a-z0-9-]+\.(?:jpg|png|webp)$/i.test(String(id||'')))return null;const result=await getStore('masco-news-media').getWithMetadata(id,{type:'arrayBuffer'});if(!result)return null;return {bytes:result.data,contentType:result.metadata?.contentType||'application/octet-stream'};}
+export{decodeUpload};
+export async function saveMedia(input){const media=decodeUpload(input),id=`${crypto.randomUUID()}.${media.extension}`;await getStore('masco-news-media').set(id,media.bytes,{metadata:{contentType:media.contentType,name:media.name}});return{id,url:`/api/news/media?id=${encodeURIComponent(id)}`};}
+export async function getMedia(id){if(!/^[a-z0-9-]+\.(?:jpg|png|webp)$/i.test(String(id||'')))return null;const result=await getStore('masco-news-media').getWithMetadata(id,{type:'arrayBuffer'});if(!result)return null;return{bytes:result.data,contentType:result.metadata?.contentType||'application/octet-stream'};}

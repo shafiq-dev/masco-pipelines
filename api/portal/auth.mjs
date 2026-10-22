@@ -1,0 +1,6 @@
+import {accessIdAllowed,createPortalSession,sessionCookie} from '../../netlify/portal-session.mjs';
+import {failure,json} from '../_http.mjs';
+
+const attempts=new Map(),maxAttempts=6,windowMs=15*60*1000;
+export async function POST(request){try{const ids=process.env.MASCO_PORTAL_ACCESS_IDS,secret=process.env.MASCO_PORTAL_SESSION_SECRET;if(!ids||!secret)return json({error:'Portal access has not been configured by MASCO IT.'},503);const ip=request.headers.get('x-forwarded-for')?.split(',')[0]?.trim()||'unknown',now=Date.now(),record=attempts.get(ip);if(record&&record.reset>now&&record.count>=maxAttempts)return json({error:'Too many access attempts. Contact MASCO Pipelines IT.'},429,{'Retry-After':String(Math.ceil((record.reset-now)/1000))});const body=await request.json();if(!accessIdAllowed(body.accessId,ids)){attempts.set(ip,record&&record.reset>now?{count:record.count+1,reset:record.reset}:{count:1,reset:now+windowMs});return json({error:'Access ID was not recognized. Contact MASCO Pipelines IT.'},401);}attempts.delete(ip);return json({ok:true},200,{'Set-Cookie':sessionCookie(createPortalSession(body.accessId.trim(),secret))});}catch(error){return failure(error,'Unable to sign in.');}}
+export function GET(){return json({error:'Method not allowed.'},405);}

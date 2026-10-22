@@ -1,0 +1,2 @@
+const formats={'image/jpeg':'jpg','image/png':'png','image/webp':'webp'};
+export function decodeUpload(input){const match=/^data:(image\/(?:jpeg|png|webp));base64,([A-Za-z0-9+/=]+)$/.exec(String(input.data||''));if(!match||!formats[match[1]])throw new Error('Upload a JPG, PNG or WebP image.');const bytes=Buffer.from(match[2],'base64');if(!bytes.length||bytes.length>4*1024*1024)throw new Error('Image must be smaller than 4 MB.');return{bytes,contentType:match[1],extension:formats[match[1]],name:String(input.name||'news-image').slice(0,120)};}
