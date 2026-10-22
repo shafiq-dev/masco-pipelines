@@ -1,9 +1,70 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#082c4d"><meta name="robots" content="noindex,nofollow"><title>News Admin | MASCO Pipelines</title><link rel="stylesheet" href="/admin/admin.css"></head><body><main>
-<section class="login-shell" id="login-view"><div class="login-brand"><a href="/"><img src="/brand/logo-white.png" alt="MASCO Pipelines"></a><p>NEWS ADMINISTRATION</p></div><div class="login-card"><span class="kicker">AUTHORIZED EDITORS</span><h1>News dashboard</h1><p>Enter the private 8-digit PIN issued by MASCO Pipelines.</p><form id="login-form"><label for="admin-pin">Admin PIN</label><div class="pin-row"><input id="admin-pin" name="pin" type="password" inputmode="numeric" pattern="[0-9]{8}" maxlength="8" autocomplete="one-time-code" required placeholder="••••••••"><button type="button" id="show-pin" aria-label="Show PIN">Show</button></div><button class="primary" type="submit">Open dashboard <span>↗</span></button><p class="status" id="login-status" aria-live="polite"></p></form><small>Protected server session · Six-attempt rate limit</small></div></section>
-<section class="dashboard" id="dashboard" hidden><header><a href="/"><img src="/brand/logo-white.png" alt="MASCO Pipelines"></a><div><span>NEWS ADMIN</span><button id="logout">Sign out</button></div></header><div class="dashboard-grid"><aside><p class="kicker">CONTENT CONTROL</p><h1>Newsroom</h1><p>Create full articles with original photography. The three confirmed client stories remain locked.</p><button class="primary" id="new-post">+ New article</button><div class="post-list" id="post-list"></div></aside>
-<section class="editor"><div class="editor-head"><div><p class="kicker" id="editor-mode">NEW ARTICLE</p><h2 id="editor-title">Create a full article</h2></div><span class="draft-state" id="draft-state">Unsaved</span></div><form id="news-form"><input type="hidden" id="post-id"><input type="hidden" id="cover-value" value="/media/jv-group.webp"><div class="field-row"><label>Category<input id="category" maxlength="38" required placeholder="PROJECT UPDATE"></label><label>Card label<input id="link-label" maxlength="40" required value="Read article"></label></div><label>Headline<input id="title" minlength="4" maxlength="110" required placeholder="Enter the article headline"></label><label>Summary<textarea id="excerpt" minlength="10" maxlength="240" required rows="3" placeholder="Write a concise introduction for the news card"></textarea><small><span id="excerpt-count">0</span>/240</small></label>
-<fieldset class="cover-field"><legend>Cover image</legend><div class="cover-actions"><label class="upload-button">Upload cover<input id="cover-upload" type="file" accept="image/jpeg,image/png,image/webp"></label><span>or choose an original MASCO image</span><select id="stock-image"><option value="/media/jv-group.webp">Joint venture group</option><option value="/media/jv-signing.webp">Signing ceremony</option><option value="/media/jv-handshake.webp">Partnership handshake</option><option value="/media/black-sea.webp">Pipeline construction</option><option value="/media/interconnection.webp">Energy interconnection</option><option value="/media/welding.webp">Pipeline welding</option></select></div><p class="upload-status" id="cover-status"></p><img class="cover-preview" id="preview-image" src="/media/jv-group.webp" alt="Cover preview"></fieldset>
-<div class="article-field"><div class="article-label"><span>Article body</span><small>Use the toolbar to format the full story.</small></div><div class="editor-toolbar" role="toolbar" aria-label="Article formatting"><button type="button" data-block="p">Text</button><button type="button" data-block="h2">Heading</button><button type="button" data-command="bold"><b>B</b></button><button type="button" data-command="italic"><i>I</i></button><button type="button" data-command="insertUnorderedList">• List</button><button type="button" data-command="insertOrderedList">1. List</button><button type="button" data-block="blockquote">Quote</button><button type="button" id="add-link">Link</button><label class="toolbar-upload">+ Image<input id="inline-upload" type="file" accept="image/jpeg,image/png,image/webp"></label></div><div class="rich-editor" id="article-editor" contenteditable="true" role="textbox" aria-multiline="true" data-placeholder="Write the full article here…"><p></p></div><p class="upload-status" id="inline-status"></p></div>
-<div class="article-preview"><span id="preview-category">PROJECT UPDATE</span><h3 id="preview-title">Your headline appears here</h3><p id="preview-excerpt">Your story summary appears here.</p><div id="preview-content"><p>Your full article preview appears here.</p></div></div><div class="form-actions"><button class="primary" type="submit" id="save-post">Publish article</button><a class="secondary" id="view-article" href="#" target="_blank" rel="noopener" hidden>View article ↗</a><button class="danger" type="button" id="delete-post" hidden>Delete</button><p class="status" id="editor-status" aria-live="polite"></p></div></form></section></div></section>
-</main><script src="/admin/admin.js" defer></script></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#082c4d">
+  <meta name="robots" content="noindex,nofollow">
+  <title>News Admin | MASCO Pipelines</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css">
+  <link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body>
+<main>
+  <section class="login-shell" id="login-view">
+    <div class="login-brand"><a href="/"><img src="/brand/logo-white.png" alt="MASCO Pipelines"></a><p>NEWS ADMINISTRATION</p></div>
+    <div class="login-card"><span class="kicker">AUTHORIZED EDITORS</span><h1>News dashboard</h1><p>Enter the private 8-digit PIN issued by MASCO Pipelines.</p><form id="login-form"><label for="admin-pin">Admin PIN</label><div class="pin-row"><input id="admin-pin" name="pin" type="password" inputmode="numeric" pattern="[0-9]{8}" maxlength="8" autocomplete="one-time-code" required placeholder="••••••••"><button type="button" id="show-pin" aria-label="Show PIN">Show</button></div><button class="primary" type="submit">Open dashboard <span>↗</span></button><p class="status" id="login-status" aria-live="polite"></p></form><small>Protected server session · Six-attempt rate limit</small></div>
+  </section>
+
+  <section class="dashboard" id="dashboard" hidden>
+    <header><a href="/"><img src="/brand/logo-white.png" alt="MASCO Pipelines"></a><div><span>NEWS ADMIN</span><a class="header-link" href="/news/" target="_blank" rel="noopener">View newsroom ↗</a><button id="logout">Sign out</button></div></header>
+    <div class="dashboard-grid">
+      <aside><p class="kicker">CONTENT CONTROL</p><h1>Newsroom</h1><p>Create complete articles with original photography. The three confirmed client stories remain locked.</p><button class="primary" id="new-post">+ New article</button><div class="post-list" id="post-list"></div></aside>
+      <section class="editor">
+        <div class="editor-head"><div><p class="kicker" id="editor-mode">NEW ARTICLE</p><h2 id="editor-title">Create a full article</h2></div><span class="draft-state" id="draft-state">Unsaved</span></div>
+        <form id="news-form">
+          <input type="hidden" id="post-id"><input type="hidden" id="cover-value">
+          <div class="field-row"><label>Category<input id="category" maxlength="38" required placeholder="PROJECT UPDATE"></label><label>Card label<input id="link-label" maxlength="40" required value="Read article"></label></div>
+          <label>Headline<input id="title" minlength="4" maxlength="110" required placeholder="Enter the article headline"></label>
+          <label>Summary<textarea id="excerpt" minlength="10" maxlength="240" required rows="3" placeholder="Write a concise introduction for the news card"></textarea><small><span id="excerpt-count">0</span>/240</small></label>
+
+          <fieldset class="cover-field">
+            <legend>Cover image <span>Required · cropped to 16:9</span></legend>
+            <label class="cover-drop" id="cover-drop"><input id="cover-upload" type="file" accept="image/jpeg,image/png,image/webp"><span class="cover-icon">↑</span><strong>Upload and crop cover</strong><small>JPG, PNG or WebP · the crop step is required</small></label>
+            <p class="upload-status" id="cover-status" aria-live="polite">Upload an original project image for this article.</p>
+            <img class="cover-preview" id="preview-image" alt="Cover preview" hidden>
+          </fieldset>
+
+          <div class="article-field">
+            <div class="article-label"><span>Article body</span><small>Select text to format it, or use the toolbar.</small></div>
+            <div id="article-toolbar" aria-label="Article formatting">
+              <span class="ql-formats"><select class="ql-header" aria-label="Text style"><option selected></option><option value="2">Heading</option><option value="3">Subheading</option></select></span>
+              <span class="ql-formats"><button class="ql-bold" type="button" aria-label="Bold"></button><button class="ql-italic" type="button" aria-label="Italic"></button><button class="ql-underline" type="button" aria-label="Underline"></button></span>
+              <span class="ql-formats"><button class="ql-list" value="ordered" type="button" aria-label="Numbered list"></button><button class="ql-list" value="bullet" type="button" aria-label="Bullet list"></button><button class="ql-blockquote" type="button" aria-label="Quote"></button></span>
+              <span class="ql-formats"><button class="ql-link" type="button" aria-label="Link"></button><button class="ql-image" type="button" aria-label="Upload image"></button><button class="ql-clean" type="button" aria-label="Clear formatting"></button></span>
+            </div>
+            <div id="article-editor" aria-label="Article body"></div>
+            <input id="inline-upload" type="file" accept="image/jpeg,image/png,image/webp" hidden>
+            <div class="editor-foot"><span id="article-count">0 words</span><span>Images are optimized automatically</span></div>
+            <p class="upload-status" id="inline-status" aria-live="polite"></p>
+          </div>
+
+          <div class="article-preview"><span id="preview-category">PROJECT UPDATE</span><h3 id="preview-title">Your headline appears here</h3><p id="preview-excerpt">Your story summary appears here.</p><div id="preview-content"><p>Your full article preview appears here.</p></div></div>
+          <div class="form-actions"><button class="primary" type="submit" id="save-post">Publish article</button><a class="secondary" id="view-article" href="#" target="_blank" rel="noopener" hidden>View article ↗</a><button class="danger" type="button" id="delete-post" hidden>Delete</button><p class="status" id="editor-status" aria-live="polite"></p></div>
+        </form>
+      </section>
+    </div>
+  </section>
+</main>
+
+<dialog class="crop-dialog" id="crop-dialog" aria-labelledby="crop-title">
+  <div class="crop-head"><div><p class="kicker">COVER IMAGE</p><h2 id="crop-title">Frame your 16:9 cover</h2></div><button type="button" id="crop-close" aria-label="Cancel crop">×</button></div>
+  <canvas id="crop-canvas" width="1600" height="900"></canvas>
+  <div class="crop-controls"><label>Zoom<input id="crop-zoom" type="range" min="1" max="3" value="1" step="0.01"></label><label>Horizontal position<input id="crop-x" type="range" min="-100" max="100" value="0"></label><label>Vertical position<input id="crop-y" type="range" min="-100" max="100" value="0"></label></div>
+  <div class="crop-actions"><button class="secondary" type="button" id="crop-cancel">Cancel</button><button class="primary" type="button" id="crop-apply">Use this crop</button></div>
+</dialog>
+
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js" defer></script>
+<script src="/admin/admin.js" defer></script>
+</body>
+</html>
