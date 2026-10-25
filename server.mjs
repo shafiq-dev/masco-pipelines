@@ -1,5 +1,6 @@
 import http from 'node:http';
-import {readFile,writeFile,mkdir} from 'node:fs/promises';
+import {createReadStream} from 'node:fs';
+import {readFile,writeFile,mkdir,stat} from 'node:fs/promises';
 import path from 'node:path';
 import {randomUUID} from 'node:crypto';
 import {accessIdAllowed,clearSessionCookie,createPortalSession,readCookie,sessionCookie,verifyPortalSession} from './netlify/portal-session.mjs';
@@ -8,7 +9,7 @@ import {adminCookie,clearAdminCookie,createAdminSession,readAdminCookie,validAdm
 import {sanitizePost} from './shared/news-sanitize.mjs';
 import {decodeUpload} from './shared/media.mjs';
 const root=path.resolve('public');
-const types={'.html':'text/html; charset=utf-8','.css':'text/css','.js':'text/javascript','.webp':'image/webp','.png':'image/png','.svg':'image/svg+xml','.pdf':'application/pdf','.ttf':'font/ttf'};
+const types={'.html':'text/html; charset=utf-8','.css':'text/css','.js':'text/javascript','.webp':'image/webp','.png':'image/png','.svg':'image/svg+xml','.pdf':'application/pdf','.ttf':'font/ttf','.mp4':'video/mp4'};
 const portalIds=process.env.MASCO_PORTAL_ACCESS_IDS||'';
 const portalSecret=process.env.MASCO_PORTAL_SESSION_SECRET||'';
 const adminPin=process.env.MASCO_ADMIN_PIN||'';
@@ -59,5 +60,12 @@ http.createServer(async(req,res)=>{try{
   if(req.method!=='POST')return sendJson(res,405,{error:'Method not allowed.'});if(!adminSecret||!verifyAdminSession(readAdminCookie(req.headers.cookie),adminSecret))return sendJson(res,401,{error:'Admin sign-in required.'});const media=decodeUpload(JSON.parse(await readUploadBody(req))),id=`${randomUUID()}.${media.extension}`;await mkdir(mediaRoot,{recursive:true});await writeFile(path.join(mediaRoot,id),media.bytes);return sendJson(res,201,{id,url:`/api/news/media?id=${encodeURIComponent(id)}`});
  }
  if(url.pathname==='/api/admin/logout')return sendJson(res,req.method==='POST'?200:405,{ok:req.method==='POST'},{'Set-Cookie':clearAdminCookie({secure:false})});
- const pathname=decodeURIComponent(url.pathname==='/'?'/index.html':url.pathname.endsWith('/')?url.pathname+'index.html':url.pathname);const file=path.resolve(root,'.'+pathname);if(!file.startsWith(root+path.sep)){res.writeHead(403);return res.end();}const data=await readFile(file);res.writeHead(200,{'Content-Type':types[path.extname(file)]||'application/octet-stream'});res.end(data);
+ const pathname=decodeURIComponent(url.pathname==='/'?'/index.html':url.pathname.endsWith('/')?url.pathname+'index.html':url.pathname);const file=path.resolve(root,'.'+pathname);if(!file.startsWith(root+path.sep)){res.writeHead(403);return res.end();}
+ if(path.extname(file).toLowerCase()==='.mp4'){
+  const info=await stat(file),range=req.headers.range,headers={'Content-Type':'video/mp4','Accept-Ranges':'bytes','Cache-Control':'public, max-age=3600'};
+  if(req.method==='HEAD'){res.writeHead(200,{...headers,'Content-Length':info.size});return res.end();}
+  if(range){const match=/^bytes=(\d*)-(\d*)$/.exec(range);if(!match){res.writeHead(416,{'Content-Range':`bytes */${info.size}`});return res.end();}const start=match[1]?Number(match[1]):0,end=Math.min(match[2]?Number(match[2]):info.size-1,info.size-1);if(!Number.isFinite(start)||!Number.isFinite(end)||start<0||start>end||start>=info.size){res.writeHead(416,{'Content-Range':`bytes */${info.size}`});return res.end();}res.writeHead(206,{...headers,'Content-Range':`bytes ${start}-${end}/${info.size}`,'Content-Length':end-start+1});return createReadStream(file,{start,end}).pipe(res);}
+  res.writeHead(200,{...headers,'Content-Length':info.size});return createReadStream(file).pipe(res);
+ }
+ const data=await readFile(file);res.writeHead(200,{'Content-Type':types[path.extname(file)]||'application/octet-stream'});res.end(data);
 }catch(error){if(error instanceof SyntaxError)return sendJson(res,400,{error:'Invalid request.'});res.writeHead(404);res.end('Not found');}}).listen(3004,'0.0.0.0',()=>console.log('MASCO Pipelines ready at http://localhost:3004'));
