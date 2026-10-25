@@ -68,5 +68,12 @@
     "source_file": "jv-signing.jpg",
     "source_sha256": "6205f371444d0688f70b42c6723e347b225545883ff1cc3b5a6a373cd707c026",
     "treatment": "EXIF orientation, proportional downsize and WebP compression only; no generative editing"
+  },
+  {
+    "asset": "public/media/about-masco-pipelines.mp4",
+    "source_archive": "User-supplied standalone media",
+    "source_file": "About Masco Pipelines.mp4",
+    "source_sha256": "488c56666070ee40d2e2cdd75ea89aad75dc332901f8ece32a3695d4cc118915",
+    "treatment": "Copied unchanged; the website thumbnail is rendered entirely with HTML and CSS"
   }
 ]
